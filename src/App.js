@@ -1,7 +1,12 @@
 import "./App.css";
+import QuestionsMain from "./components/questionsMain/QuestionsMain";
 
 function App() {
-  return <h1>Hello</h1>;
+  return (
+    <div>
+      <QuestionsMain />
+    </div>
+  );
 }
 
 export default App;
