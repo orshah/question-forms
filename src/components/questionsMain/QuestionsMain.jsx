@@ -7,6 +7,8 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import TrueFalse from "../trueFalse/TrueFalse";
 
+import FlashCard from "../flashCard_2/FlashCard";
+
 function QuestionsMain() {
   const [value, setValue] = React.useState("1");
 
@@ -34,7 +36,9 @@ function QuestionsMain() {
             <TrueFalse />
           </TabPanel>
           <TabPanel value="2">Item Two</TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
+          <TabPanel value="3">
+            <FlashCard />
+          </TabPanel>
         </TabContext>
       </Box>
     </div>
