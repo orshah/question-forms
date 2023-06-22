@@ -41,6 +41,7 @@ function TrueFalse() {
     <div className="trueFalse__container">
       <h2 className="trueFalse__header">QUIZ FORM</h2>
       <div>
+        <p>Select category:</p>
         <FormControl
           sx={{ m: 1, width: 400 }}
           component="form"
@@ -68,6 +69,7 @@ function TrueFalse() {
                 />
               </RadioGroup>
             </FormControl>
+            <p>Select level:</p>
             <FormControl component="fieldset">
               <RadioGroup
                 className="trueFalse__levelTab"
@@ -103,6 +105,7 @@ function TrueFalse() {
             name="question"
           />
           <FormControl component="fieldset">
+            <p>Select correct answer:</p>
             <RadioGroup
               className="trueFalse__booleanTab"
               value={booleanValue}
