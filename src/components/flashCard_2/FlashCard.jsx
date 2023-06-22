@@ -47,6 +47,7 @@ function FlashCard() {
         >
           <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
             <FormControl component="fieldset">
+              <span> Select category:</span>
               <RadioGroup
                 className="trueFalse__typeTab"
                 value={typeValue}
@@ -55,6 +56,7 @@ function FlashCard() {
               >
                 <FormControlLabel value="css" control={<Radio />} label="CSS" />
                 <FormControlLabel value="js" control={<Radio />} label="JS" />
+
                 <FormControlLabel
                   value="react"
                   control={<Radio />}
@@ -68,6 +70,7 @@ function FlashCard() {
               </RadioGroup>
             </FormControl>
             <FormControl component="fieldset">
+              <p> Select Level:</p>
               <RadioGroup
                 className="trueFalse__levelTab"
                 value={levelValue}
@@ -96,6 +99,15 @@ function FlashCard() {
             sx={{ marginTop: "1rem" }}
             id="outlined-basic"
             label="Input Question"
+            variant="outlined"
+            onChange={handleChangeInput}
+            value={text}
+            name="question"
+          />
+          <TextField
+            sx={{ marginTop: "1rem" }}
+            id="outlined-basic"
+            label="Input Answer"
             variant="outlined"
             onChange={handleChangeInput}
             value={text}
