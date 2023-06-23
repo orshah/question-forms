@@ -8,6 +8,7 @@ import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 function FlashCard() {
   const theme = useTheme();
@@ -40,6 +41,7 @@ function FlashCard() {
 
   return (
     <div className="trueFalse__container">
+      <SnackbarProvider />
       <h2 className="trueFalse__header">FLASHCARD</h2>
       <div>
         <FormControl
@@ -152,6 +154,9 @@ function FlashCard() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={() =>
+              enqueueSnackbar("Question created", { variant: "success" })
+            }
           >
             Submit
           </Button>

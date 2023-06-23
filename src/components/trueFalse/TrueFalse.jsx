@@ -9,6 +9,7 @@ import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 import { TextareaAutosize } from "@mui/material";
 import { db } from "../../firebase-config";
 import {
@@ -44,10 +45,13 @@ function TrueFalse() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    console.log(Object.fromEntries(formData));
     try {
       const questionsCollection = collection(db, "questions");
-      await addDoc(questionsCollection, data);
+      await addDoc(questionsCollection, {
+        ...data,
+        options: ["true", "false"],
+      });
     } catch (err) {
       console.log("err:", err);
     }
@@ -59,6 +63,7 @@ function TrueFalse() {
 
   return (
     <div className="trueFalse__container">
+      <SnackbarProvider />
       <h2 className="trueFalse__header">QUIZ FORM</h2>
       <div>
         <FormControl
@@ -121,6 +126,9 @@ function TrueFalse() {
               </RadioGroup>
             </FormControl>
           </Box>
+          <Typography variant="h6" gutterBottom>
+            Question:
+          </Typography>
           <TextareaAutosize
             sx={{ marginTop: "1rem" }}
             id="outlined-basic"
@@ -156,6 +164,9 @@ function TrueFalse() {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
+            onClick={() =>
+              enqueueSnackbar("Question created", { variant: "success" })
+            }
           >
             Submit
           </Button>
