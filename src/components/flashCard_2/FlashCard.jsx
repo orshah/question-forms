@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import FormControl from "@mui/material/FormControl";
 import { useTheme } from "@mui/material/styles";
-import TextField from "@mui/material/TextField";
+import TextareaAutosize from "@mui/base/TextareaAutosize";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 function FlashCard() {
   const theme = useTheme();
@@ -48,7 +49,9 @@ function FlashCard() {
         >
           <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
             <FormControl component="fieldset">
-              <span> Select category:</span>
+              <Typography variant="h6" gutterBottom>
+                Select category:
+              </Typography>
               <RadioGroup
                 className="trueFalse__typeTab"
                 value={typeValue}
@@ -72,7 +75,9 @@ function FlashCard() {
               </RadioGroup>
             </FormControl>
             <FormControl component="fieldset">
-              <p> Select Level:</p>
+              <Typography variant="h6" gutterBottom>
+                Select level:
+              </Typography>
               <RadioGroup
                 className="trueFalse__levelTab"
                 value={levelValue}
@@ -98,7 +103,11 @@ function FlashCard() {
               </RadioGroup>
             </FormControl>
           </Box>
-          <TextField
+          <Typography variant="h6" gutterBottom>
+            Question:
+          </Typography>
+
+          <TextareaAutosize
             sx={{ marginTop: "1rem" }}
             id="outlined-basic"
             label="Input Question"
@@ -106,15 +115,22 @@ function FlashCard() {
             onChange={handleChangeInput}
             value={question}
             name="question"
+            minRows={5}
+            placeholder="Input Question"
           />
-          <TextField
-            sx={{ marginTop: "1rem" }}
+          <Typography variant="h6" gutterBottom>
+            Answer:
+          </Typography>
+          <TextareaAutosize
+            sx={{ marginTop: "2rem" }}
             id="outlined-basic"
             label="Input Answer"
             variant="outlined"
             onChange={handleChangeAnswer}
             value={answer}
             name="answer"
+            minRows={5}
+            placeholder="Input Answer"
           />
           <FormControl component="fieldset">
             {/* <RadioGroup

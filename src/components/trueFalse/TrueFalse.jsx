@@ -8,6 +8,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import { TextareaAutosize } from "@mui/material";
 import { db } from "../../firebase-config";
 import {
@@ -60,12 +61,14 @@ function TrueFalse() {
     <div className="trueFalse__container">
       <h2 className="trueFalse__header">QUIZ FORM</h2>
       <div>
-        <p>Select category:</p>
         <FormControl
           sx={{ m: 1, width: 400 }}
           component="form"
           onSubmit={handleSubmit}
         >
+          <Typography variant="h6" gutterBottom>
+            Select Category:
+          </Typography>
           <Box sx={{ width: "100%", bgcolor: "background.paper" }}>
             <FormControl component="fieldset">
               <RadioGroup
@@ -89,7 +92,9 @@ function TrueFalse() {
                 />
               </RadioGroup>
             </FormControl>
-            <p>Select level:</p>
+            <Typography variant="h6" gutterBottom>
+              Select Level:
+            </Typography>
             <FormControl component="fieldset">
               <RadioGroup
                 className="trueFalse__levelTab"
@@ -128,7 +133,9 @@ function TrueFalse() {
             minRows={5}
           />
           <FormControl component="fieldset">
-            <p>Select correct answer:</p>
+            <Typography variant="h6" gutterBottom>
+              Select Correct Answer:
+            </Typography>
             <RadioGroup
               className="trueFalse__booleanTab"
               value={booleanValue}
