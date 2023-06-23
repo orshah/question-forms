@@ -10,10 +10,10 @@ import Button from "@mui/material/Button";
 
 function FlashCard() {
   const theme = useTheme();
-  const [text, setText] = useState("");
+  const [question, setQuestion] = useState("");
   const [typeValue, setTypeValue] = useState("css");
   const [levelValue, setLevelValue] = useState("easy");
-  const [booleanValue, setBooleanValue] = useState("true");
+  const [answer, setAnswer] = useState("");
 
   const handleChangeType = (event) => {
     setTypeValue(event.target.value);
@@ -21,12 +21,13 @@ function FlashCard() {
   const handleChangeLevel = (event) => {
     setLevelValue(event.target.value);
   };
-  const handleChangeBoolean = (event) => {
-    setBooleanValue(event.target.value);
-  };
 
   const handleChangeInput = (e) => {
-    setText(e.target.value);
+    setQuestion(e.target.value);
+  };
+
+  const handleChangeAnswer = (e) => {
+    setAnswer(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -52,6 +53,7 @@ function FlashCard() {
                 className="trueFalse__typeTab"
                 value={typeValue}
                 onChange={handleChangeType}
+                name="category"
                 row
               >
                 <FormControlLabel value="css" control={<Radio />} label="CSS" />
@@ -76,6 +78,7 @@ function FlashCard() {
                 value={levelValue}
                 onChange={handleChangeLevel}
                 row
+                name="level"
               >
                 <FormControlLabel
                   value="easy"
@@ -101,7 +104,7 @@ function FlashCard() {
             label="Input Question"
             variant="outlined"
             onChange={handleChangeInput}
-            value={text}
+            value={question}
             name="question"
           />
           <TextField
@@ -109,9 +112,9 @@ function FlashCard() {
             id="outlined-basic"
             label="Input Answer"
             variant="outlined"
-            onChange={handleChangeInput}
-            value={text}
-            name="question"
+            onChange={handleChangeAnswer}
+            value={answer}
+            name="answer"
           />
           <FormControl component="fieldset">
             {/* <RadioGroup

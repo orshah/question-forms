@@ -19,7 +19,7 @@ function QuestionsMain() {
   return (
     <div>
       <Box sx={{ width: "100%", typography: "body1" }}>
-        <h1 className="header__questionsMain">CHOOSE TYPE OF THE QUESTION</h1>
+        <h1 className="header__questionsMain">CREATE A QUESTION</h1>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <TabList

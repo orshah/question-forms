@@ -8,6 +8,15 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import { TextareaAutosize } from "@mui/material";
+import { db } from "../../firebase-config";
+import {
+  collection,
+  doc,
+  getDocs,
+  addDoc,
+  deleteDoc,
+} from "firebase/firestore/lite";
 
 function TrueFalse() {
   const theme = useTheme();
@@ -30,11 +39,21 @@ function TrueFalse() {
     setText(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
+    try {
+      const questionsCollection = collection(db, "questions");
+      await addDoc(questionsCollection, data);
+    } catch (err) {
+      console.log("err:", err);
+    }
+    setText("");
+    setTypeValue("css");
+    setLevelValue("easy");
+    setBooleanValue("true");
   };
 
   return (
@@ -53,6 +72,7 @@ function TrueFalse() {
                 className="trueFalse__typeTab"
                 value={typeValue}
                 onChange={handleChangeType}
+                name="category"
                 row
               >
                 <FormControlLabel value="css" control={<Radio />} label="CSS" />
@@ -74,6 +94,7 @@ function TrueFalse() {
               <RadioGroup
                 className="trueFalse__levelTab"
                 value={levelValue}
+                name="level"
                 onChange={handleChangeLevel}
                 row
               >
@@ -95,7 +116,7 @@ function TrueFalse() {
               </RadioGroup>
             </FormControl>
           </Box>
-          <TextField
+          <TextareaAutosize
             sx={{ marginTop: "1rem" }}
             id="outlined-basic"
             label="Input Question"
@@ -103,6 +124,8 @@ function TrueFalse() {
             onChange={handleChangeInput}
             value={text}
             name="question"
+            placeholder="Input question"
+            minRows={5}
           />
           <FormControl component="fieldset">
             <p>Select correct answer:</p>
@@ -110,6 +133,7 @@ function TrueFalse() {
               className="trueFalse__booleanTab"
               value={booleanValue}
               onChange={handleChangeBoolean}
+              name="answer"
               row
             >
               <FormControlLabel value="true" control={<Radio />} label="TRUE" />
