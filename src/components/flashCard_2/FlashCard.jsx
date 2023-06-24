@@ -40,9 +40,9 @@ function FlashCard() {
   };
 
   return (
-    <div className="trueFalse__container">
+    <div className="flashCards__container">
       <SnackbarProvider />
-      <h2 className="trueFalse__header">FLASHCARD</h2>
+      <h2 className="flashCards__header">FLASHCARD</h2>
       <div>
         <FormControl
           sx={{ m: 1, width: 400 }}
@@ -55,7 +55,7 @@ function FlashCard() {
                 Select category:
               </Typography>
               <RadioGroup
-                className="trueFalse__typeTab"
+                className="flashCards__typeTab"
                 value={typeValue}
                 onChange={handleChangeType}
                 name="category"
@@ -81,7 +81,7 @@ function FlashCard() {
                 Select level:
               </Typography>
               <RadioGroup
-                className="trueFalse__levelTab"
+                className="flashCards__levelTab"
                 value={levelValue}
                 onChange={handleChangeLevel}
                 row
@@ -136,7 +136,7 @@ function FlashCard() {
           />
           <FormControl component="fieldset">
             {/* <RadioGroup
-              className="trueFalse__booleanTab"
+              className="flashCards__booleanTab"
               value={booleanValue}
               onChange={handleChangeBoolean}
               row
