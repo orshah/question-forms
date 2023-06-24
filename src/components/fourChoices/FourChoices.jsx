@@ -172,7 +172,7 @@ function FourChoices() {
             value={answerThree}
             name="answer"
             minRows={5}
-            placeholder="Correct Answer"
+            placeholder="Incorrect Answer"
           />
           <br />
           <TextareaAutosize
@@ -184,7 +184,7 @@ function FourChoices() {
             value={answerFour}
             name="answer"
             minRows={5}
-            placeholder="Correct Answer"
+            placeholder="Incorrect Answer"
           />
           <Button
             type="submit"
