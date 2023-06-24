@@ -137,7 +137,7 @@ function FourChoices() {
             placeholder="Input Question"
           />
           <Typography variant="h6" gutterBottom>
-            Answer:
+            Answers:
           </Typography>
           <TextareaAutosize
             sx={{ marginTop: "2rem" }}
