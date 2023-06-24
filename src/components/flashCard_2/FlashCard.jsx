@@ -134,21 +134,6 @@ function FlashCard() {
             minRows={5}
             placeholder="Input Answer"
           />
-          <FormControl component="fieldset">
-            {/* <RadioGroup
-              className="flashCards__booleanTab"
-              value={booleanValue}
-              onChange={handleChangeBoolean}
-              row
-            >
-              <FormControlLabel value="true" control={<Radio />} label="TRUE" />
-              <FormControlLabel
-                value="false"
-                control={<Radio />}
-                label="FALSE"
-              />
-            </RadioGroup> */}
-          </FormControl>
           <Button
             type="submit"
             fullWidth
