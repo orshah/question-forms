@@ -53,9 +53,9 @@ function FourChoices() {
   };
 
   return (
-    <div className="trueFalse__container">
+    <div className="fourChoices__container">
       <SnackbarProvider />
-      <h2 className="trueFalse__header"> Four Choices</h2>
+      <h2 className="fourChoices__header"> Four Choices</h2>
       <div>
         <FormControl
           sx={{ m: 1, width: 400 }}
@@ -68,7 +68,7 @@ function FourChoices() {
                 Select category:
               </Typography>
               <RadioGroup
-                className="trueFalse__typeTab"
+                className="fourChoices__typeTab"
                 value={typeValue}
                 onChange={handleChangeType}
                 name="category"
@@ -94,7 +94,7 @@ function FourChoices() {
                 Select level:
               </Typography>
               <RadioGroup
-                className="trueFalse__levelTab"
+                className="fourChoices__levelTab"
                 value={levelValue}
                 onChange={handleChangeLevel}
                 row
@@ -142,23 +142,11 @@ function FourChoices() {
           <TextareaAutosize
             sx={{ marginTop: "2rem" }}
             id="outlined-basic"
-            label="Input Answer"
+            label="Input Answer One"
             variant="outlined"
             onChange={handleChangeAnswer}
             value={answer}
-            name="answer"
-            minRows={5}
-            placeholder="Correct Answer"
-          />
-          <br />
-          <TextareaAutosize
-            sx={{ marginTop: "2rem" }}
-            id="outlined-basic"
-            label="Input Answer"
-            variant="outlined"
-            onChange={handleChangeAnswerTwo}
-            value={answerTwo}
-            name="answer"
+            name="answerIncOne"
             minRows={5}
             placeholder="Incorrect Answer"
           />
@@ -166,23 +154,35 @@ function FourChoices() {
           <TextareaAutosize
             sx={{ marginTop: "2rem" }}
             id="outlined-basic"
-            label="Input Answer"
+            label="Input Answer Two"
             variant="outlined"
-            onChange={handleChangeAnswerThree}
-            value={answerThree}
-            name="answer"
+            onChange={handleChangeAnswerTwo}
+            value={answerTwo}
+            name="answerIncTwo"
             minRows={5}
-            placeholder="Correct Answer"
+            placeholder="Incorrect Answer"
           />
           <br />
           <TextareaAutosize
             sx={{ marginTop: "2rem" }}
             id="outlined-basic"
-            label="Input Answer"
+            label="Input Answer Three"
+            variant="outlined"
+            onChange={handleChangeAnswerThree}
+            value={answerThree}
+            name="answerIncThree"
+            minRows={5}
+            placeholder="Incorrect Answer"
+          />
+          <br />
+          <TextareaAutosize
+            sx={{ marginTop: "2rem" }}
+            id="outlined-basic"
+            label="Input Answer Four"
             variant="outlined"
             onChange={handleChangeAnswerFour}
             value={answerFour}
-            name="answer"
+            name="answerCorrect"
             minRows={5}
             placeholder="Correct Answer"
           />
